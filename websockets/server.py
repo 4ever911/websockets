@@ -43,7 +43,7 @@ class WebSocketServerProtocol(WebSocketCommonProtocol):
         WebSocketCommonProtocol.__init__(self,**kwds)
 
     def connection_made(self, transport):
-        super().connection_made(transport)
+        WebSocketCommonProtocol.connection_made(self,transport)
         # Register the connection with the server when creating the handler
         # task. (Registering at the beginning of the handler coroutine would
         # create a race condition between the creation of the task, which

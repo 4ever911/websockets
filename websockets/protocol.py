@@ -622,7 +622,7 @@ class WebSocketCommonProtocol(trollius.StreamReaderProtocol):
         self.worker_task = trollius_ensure_future(self.run(), loop=self.loop)
 
     def eof_received(self):
-        super().eof_received()
+        trollius.StreamReaderProtocol.eof_received(self)
         # Since Python 3.5, StreamReaderProtocol.eof_received() returns True
         # to leave the transport open (http://bugs.python.org/issue24539).
         # This is inappropriate for websockets for at least three reasons.
@@ -648,4 +648,4 @@ class WebSocketCommonProtocol(trollius.StreamReaderProtocol):
         # Close the transport in case close_connection() wasn't executed.
         if self.writer is not None:
             self.writer.close()
-        super().connection_lost(exc)
+        trollius.StreamReaderProtocol.connection_lost(self,exc)
