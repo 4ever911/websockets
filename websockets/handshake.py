@@ -87,10 +87,10 @@ def check_request(get_header):
             token.strip() == 'upgrade'
             for token in get_header('Connection').lower().split(','))
         key = get_header('Sec-WebSocket-Key')
-        assert len(base64.b64decode(key.encode(), validate=True)) == 16
+        assert len(base64.b64decode(key.encode())) == 16
         assert get_header('Sec-WebSocket-Version') == '13'
-    except Exception as exc:
-        raise InvalidHandshake("Invalid request"),exc
+    except:
+        raise InvalidHandshake("Invalid request")
     else:
         return key
 
@@ -130,7 +130,7 @@ def check_response(get_header, key):
             for token in get_header('Connection').lower().split(','))
         assert get_header('Sec-WebSocket-Accept') == accept(key)
     except Exception as exc:
-        raise InvalidHandshake("Invalid response"),exc
+        raise InvalidHandshake("Invalid response")
 
 
 def accept(key):

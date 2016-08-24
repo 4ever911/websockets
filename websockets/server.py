@@ -143,7 +143,7 @@ class WebSocketServerProtocol(WebSocketCommonProtocol):
             raise InvalidHandshake("Malformed HTTP message"),exc
 
         self.request_headers = headers
-        self.raw_request_headers = list(headers.raw_items())
+        self.raw_request_headers = headers.items()
 
         get_header = lambda k: headers.get(k, '')
         key = check_request(get_header)

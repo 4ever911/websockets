@@ -90,7 +90,7 @@ def read_message(stream):
     else:
         raise ValueError("Too many headers")
     header_lines.seek(0)
-    headers = email.parser.BytesHeaderParser().parse(header_lines)
+    headers = email.parser.HeaderParser().parse(header_lines)
     raise trollius.Return(start_line, headers)
 
 
