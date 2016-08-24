@@ -166,14 +166,3 @@ def connect(uri,
         raise
 
     raise trollius.Return(protocol)
-
-
-try:
-    from .py35.client import Connect
-except (SyntaxError, ImportError):                          # pragma: no cover
-    pass
-else:
-    Connect.__wrapped__ = connect
-    # Copy over docstring to support building documentation on Python 3.5.
-    Connect.__doc__ = connect.__doc__
-    connect = Connect

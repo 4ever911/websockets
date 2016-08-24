@@ -40,7 +40,7 @@ class WebSocketServerProtocol(WebSocketCommonProtocol):
         self.origins = origins
         self.subprotocols = subprotocols
         self.extra_headers = extra_headers
-        super().__init__(**kwds)
+        WebSocketCommonProtocol.__init__(self,**kwds)
 
     def connection_made(self, transport):
         super().connection_made(transport)

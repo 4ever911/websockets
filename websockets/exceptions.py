@@ -39,7 +39,7 @@ class ConnectionClosed(InvalidState):
         message = 'WebSocket connection is closed: '
         message += 'code = {}, '.format(code) if code else 'no code, '
         message += 'reason = {}.'.format(reason) if reason else 'no reason.'
-        super().__init__(message)
+        InvalidState.__init__(self,message)
 
 
 class InvalidURI(Exception):

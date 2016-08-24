@@ -120,7 +120,7 @@ class WebSocketCommonProtocol(trollius.StreamReaderProtocol):
         self.legacy_recv = legacy_recv
 
         stream_reader = trollius.StreamReader(loop=loop)
-        super().__init__(stream_reader, self.client_connected, loop)
+        trollius.StreamReaderProtocol.__init__(self,stream_reader, self.client_connected, loop)
 
         self.reader = None
         self.writer = None
