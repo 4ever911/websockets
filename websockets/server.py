@@ -33,7 +33,7 @@ class WebSocketServerProtocol(WebSocketCommonProtocol):
     """
     state = CONNECTING
 
-    def __init__(self, ws_handler, ws_server, _,
+    def __init__(self, ws_handler, ws_server,
                  origins=None, subprotocols=None, extra_headers=None, **kwds):
         self.ws_handler = ws_handler
         self.ws_server = ws_server

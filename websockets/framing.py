@@ -46,7 +46,7 @@ CLOSE_CODES = {
 Frame = collections.namedtuple('Frame', ('fin', 'opcode', 'data'))
 
 @trollius.coroutine
-def read_frame(reader, mask, _, max_size=None):
+def read_frame(reader, mask, max_size=None):
     """
     Read a WebSocket frame and return a :class:`Frame` object.
 

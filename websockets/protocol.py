@@ -101,7 +101,7 @@ class WebSocketCommonProtocol(trollius.StreamReaderProtocol):
     is_client = False
     state = OPEN
 
-    def __init__(self,_,
+    def __init__(self,
                  host=None, port=None, secure=None,
                  timeout=10, max_size=2 ** 20, max_queue=2 ** 5,
                  loop=None, legacy_recv=False):

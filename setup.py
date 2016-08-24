@@ -2,7 +2,7 @@
 # @Author: Evan
 # @Date:   2016-08-24 20:12:17
 # @Last Modified by:   Evan
-# @Last Modified time: 2016-08-24 20:35:03
+# @Last Modified time: 2016-08-24 22:54:59
 from setuptools import setup, find_packages
 from os import path
 
@@ -12,7 +12,7 @@ here = path.abspath(path.dirname(__file__))
 setup(
     name='websockets',
 
-    version='3.2.0',
+    version='3.2.1',
 
     description='websockets module for python2.7',
 

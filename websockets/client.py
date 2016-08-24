@@ -100,7 +100,7 @@ class WebSocketClientProtocol(WebSocketCommonProtocol):
 
 
 @trollius.coroutine
-def connect(uri, _,
+def connect(uri,
             klass=WebSocketClientProtocol,
             timeout=10, max_size=2 ** 20, max_queue=2 ** 5,
             loop=None, legacy_recv=False,
